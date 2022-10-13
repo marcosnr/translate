@@ -36,7 +36,7 @@ Get a napkin, do a diagram / workflow and plan, start with the end in mind! Then
 
 - Instructions must be as clear as possible, with links for navigation
 - Every change is tied up to a requirement,described in the commit subject (e.g. mimick integration with Jira / Task tracking software)
-- Any and every technical debt accrued must be recorded (e.g. transparency and accountability for backlog groming, planning, etc.) See the [TODOs section](/localise/TODOs.md) for this.
+- Any and every technical debt accrued must be recorded (e.g. transparency and accountability for backlog groming, planning, etc.) See the [TODOs section](/lokalise/TODOs.md) for this.
 
 
 ## Change Log
@@ -104,4 +104,6 @@ node_modules/log4js
  ### [Req 3 Expanded] Better IaC
 
  Objective is to show some Cloud Infrastructure / Kubernetes capabilities
+
+ - Created local k8s deployment with minikube
  

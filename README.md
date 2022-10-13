@@ -60,7 +60,13 @@ When working on this project, please bear in mind that:
   docker compose version
   Docker Compose version v2.10.2
   ```
+- For Local Kubernetes deployment (Minikube)
 
+```bash
+minikube version
+minikube version: v1.27.0
+commit: 4243041b7a72319b9be7842a7d34b6767bbdac2b
+```
 ### CI/CD
 
 This project leverages [Github actions](https://github.com/features/actions). Templates can be found on the [.github/workflows/build.yml](/.github/workflows/build.yml) folder
@@ -175,8 +181,16 @@ For deployment at a scale, you can deploy this in a Kubernetes cluster as a serv
 
 ```bash
 minikube start
-kubectl apply -f /k8s/translate_deployment.yml
-kubectl apply -f /k8s/translate_svc.yml
+minikube status # check is working
+minikube tunnel # to be able to get the external ip later on!
+# single pod version
+kubectl apply -f /k8s/translate-pod.yml
+# as a service
+kubectl apply -f /k8s/translate-deployment.yml
+kubectl apply -f /k8s/translate-svc.yml
+# then get the cluster public External ip with:
+kubectl get services -o wide
+# and reach the app through http://${externalip}:30080
 ```
 
 ## Resources
@@ -185,3 +199,4 @@ kubectl apply -f /k8s/translate_svc.yml
 - [Docker documentation](https://docs.docker.com/)
 - [NPM audit documentation](https://docs.npmjs.com/cli/v6/commands/npm-audit)
 - [GitHub Action for Container Scanning](https://github.com/crazy-max/ghaction-container-scan)
+- [Minikube docs](https://kubernetes.io/fr/docs/tasks/tools/install-minikube/)
