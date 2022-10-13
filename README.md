@@ -181,12 +181,16 @@ For deployment at a scale, you can deploy this in a Kubernetes cluster as a serv
 
 ```bash
 minikube start
+minikube status # check is working
+minikube tunnel # to be able to get the external ip later on!
 # single pod version
 kubectl apply -f /k8s/translate-pod.yml
 # as a service
 kubectl apply -f /k8s/translate-deployment.yml
 kubectl apply -f /k8s/translate-svc.yml
-# then get the cluster public ip and reach the app through port 30080
+# then get the cluster public External ip with:
+kubectl get services -o wide
+# and reach the app through http://${externalip}:30080
 ```
 
 ## Resources
@@ -195,3 +199,4 @@ kubectl apply -f /k8s/translate-svc.yml
 - [Docker documentation](https://docs.docker.com/)
 - [NPM audit documentation](https://docs.npmjs.com/cli/v6/commands/npm-audit)
 - [GitHub Action for Container Scanning](https://github.com/crazy-max/ghaction-container-scan)
+- [Minikube docs](https://kubernetes.io/fr/docs/tasks/tools/install-minikube/)

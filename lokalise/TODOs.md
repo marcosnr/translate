@@ -30,5 +30,5 @@ List of requirements and tech debt accrued during normal development. (To be add
 - Add linting with ESlint
 - Find a container scanning that is not freemium / reuired to have two accounts online. For instance [Clair](https://github.com/quay/clair)
 - Move Container scanning only on PR, with tag name as branch 
-- Certain variables like port 80 are hardcoded everywhere, there should be env vars and ssm parameter / .envrc handling of these
+- Certain variables like port 80 are hardcoded everywhere, there should be env vars/ ConfigMaps in k8s, and  .envrc handling of these
 - Automate in a script installation of minikube and other dependencies!
